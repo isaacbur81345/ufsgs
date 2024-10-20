@@ -625,7 +625,7 @@ Close.Size = UDim2.new(0.75053364, 0, 0.740289927, 0)
 
 UICorner_23.Parent = Close
 
-Text.Name = "Text"
+Text.Name = "BTTEXT"
 Text.Parent = Close
 Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text.BackgroundTransparency = 1.000
@@ -664,7 +664,7 @@ Minimize.Size = UDim2.new(0.75053364, 0, 0.740289927, 0)
 
 UICorner_24.Parent = Minimize
 
-Text_2.Name = "Text"
+Text_2.Name = "BTTEXT"
 Text_2.Parent = Minimize
 Text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_2.BackgroundTransparency = 1.000
@@ -708,7 +708,7 @@ TextTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextTemplate.BorderSizePixel = 0
 TextTemplate.Size = UDim2.new(0, 100, 0, 100)
 
-Text_3.Name = "Text"
+Text_3.Name = "BTTEXT"
 Text_3.Parent = TextTemplate
 Text_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_3.BackgroundTransparency = 1.000
@@ -767,7 +767,7 @@ UICorner_26.Parent = Image
 
 UIAspectRatioConstraint_3.Parent = Image
 
-Text_4.Name = "Text"
+Text_4.Name = "BTTEXT"
 Text_4.Parent = ButtonTemplate
 Text_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_4.BackgroundTransparency = 1.000
@@ -842,7 +842,7 @@ FrameBG_7.Size = UDim2.new(0.949999988, 0, 0.963999987, 0)
 
 UICorner_28.Parent = FrameBG_7
 
-Text_5.Name = "Text"
+Text_5.Name = "BTTEXT"
 Text_5.Parent = TabTemplate
 Text_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_5.BackgroundTransparency = 1.000
@@ -926,7 +926,7 @@ Frame_9.Size = UDim2.new(0.75053364, 0, 0.740289927, 0)
 
 UICorner_32.Parent = Frame_9
 
-Text_6.Name = "Text"
+Text_6.Name = "BTTEXT"
 Text_6.Parent = Frame_9
 Text_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_6.BackgroundTransparency = 1.000
@@ -978,7 +978,7 @@ Unminize.Size = UDim2.new(0.771759272, 0, 0.740289927, 0)
 
 UICorner_34.Parent = Unminize
 
-Text_7.Name = "Text"
+Text_7.Name = "BTTEXT"
 Text_7.Parent = Unminize
 Text_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_7.BackgroundTransparency = 1.000
@@ -1126,7 +1126,7 @@ function Window.CreateTab(table)
         Text.Parent = Tab.Tab
 
         Text.Name = textTable.Name or "Button"
-        Text.Text = textTable.Text or "ButtonTemplate"
+        Text.BTTEXT.Text = textTable.Text or "ButtonTemplate"
 
         return Text
     end
@@ -1137,7 +1137,7 @@ function Window.CreateTab(table)
         Button.Parent = Tab.Tab
 
         Button.Name = buttonTable.Name or "Button"
-        Button.Text = buttonTable.Text or "ButtonTemplate"
+        Button.BTTEXT.Text = buttonTable.Text or "ButtonTemplate"
         Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
 
         Button.MouseButton1Click:Connect(table.Func)
@@ -1146,7 +1146,7 @@ function Window.CreateTab(table)
     end
 
     Tab.Name = table.Name or "Tab"
-    Tab.Text = table.Text or "TabTemplate"
+    Tab.BTTEXT.Text = table.Text or "TabTemplate"
 
     if table.Default == true then
         DefaultTab = Tab
