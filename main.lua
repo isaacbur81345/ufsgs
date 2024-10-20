@@ -1140,10 +1140,17 @@ function Window.CreateTab(hm, TabTable)
         Button.Name = buttonTable.Name or "Button"
         Button.BTTEXT.Text = buttonTable.Text or "ButtonTemplate"
         Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
+		Button.Active = true
 
         Button.MouseButton1Click:Connect(function()
 			print("click!")
 			buttonTable.Func()
+			if buttonTable.Func then
+				buttonTable.Func()
+				print("Function executed!")
+			else
+				print("No function defined")
+			end
 		end)
 
         return Button
