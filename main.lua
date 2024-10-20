@@ -127,7 +127,6 @@ local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
 --Properties:
 
 Dandysbin.Name = "Dandysbin"
-Dandysbin.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Dandysbin.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = Dandysbin
@@ -801,18 +800,6 @@ UIGradient_8.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fr
 UIGradient_8.Rotation = 90
 UIGradient_8.Parent = Frame_7
 
-TabTemplateSF.Name = "TabTemplateSF"
-TabTemplateSF.Parent = Templates
-TabTemplateSF.Active = true
-TabTemplateSF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TabTemplateSF.BackgroundTransparency = 0.650
-TabTemplateSF.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TabTemplateSF.BorderSizePixel = 0
-TabTemplateSF.Position = UDim2.new(0.0168857668, 0, 0.0271002706, 0)
-TabTemplateSF.Size = UDim2.new(0.72734195, 0, 0.94579947, 0)
-TabTemplateSF.ZIndex = 10
-TabTemplateSF.CanvasSize = UDim2.new(0, 0, 1, 0)
-
 UIGridLayout_2.Parent = TabTemplateSF
 UIGridLayout_2.CellPadding = UDim2.new(-0.00999999978, 0, 0.00999999978, 0)
 UIGridLayout_2.CellSize = UDim2.new(1, 0, 0.200000003, 0)
@@ -831,6 +818,18 @@ TabTemplate.Font = Enum.Font.SourceSans
 TabTemplate.Text = " "
 TabTemplate.TextColor3 = Color3.fromRGB(0, 0, 0)
 TabTemplate.TextSize = 14.000
+
+TabTemplateSF.Name = "TabTemplateSF"
+TabTemplateSF.Parent = TabTemplate
+TabTemplateSF.Active = true
+TabTemplateSF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TabTemplateSF.BackgroundTransparency = 0.650
+TabTemplateSF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabTemplateSF.BorderSizePixel = 0
+TabTemplateSF.Position = UDim2.new(0.0168857668, 0, 0.0271002706, 0)
+TabTemplateSF.Size = UDim2.new(0.72734195, 0, 0.94579947, 0)
+TabTemplateSF.ZIndex = 10
+TabTemplateSF.CanvasSize = UDim2.new(0, 0, 1, 0) 
 
 FrameBG_7.Name = "FrameBG"
 FrameBG_7.Parent = TabTemplate
@@ -1100,3 +1099,58 @@ local function NWETGK_fake_script() -- B_3.LocalScript
 	end)
 end
 coroutine.wrap(NWETGK_fake_script)()
+
+local DefaultTab = nil
+
+function Run()
+    Dandysbin.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    if DefaultTab then
+        Frame.Tab:Destroy()
+        DefaultTab.UI.Tab.Parent = Frame
+    else
+    end
+end
+
+local Window = {UI = Dandysbin}
+
+function Window.CreateTab(table)
+    local Tab = Templates.TabTemplate:Clone()
+    local TabFunctions = {UI = Tab}
+
+    Tab.Parent = DescribeFrame
+
+
+    function TabFunctions.CreateButton(textTable)
+        local Text = Templates.TextTemplate:Clone()
+
+        Text.Parent = Tab.Tab
+
+        Text.Name = textTable.Name or "Button"
+        Text.Text = textTable.Text or "ButtonTemplate"
+
+        return Text
+    end
+
+    function TabFunctions.CreateText(buttonTable)
+        local Button = Templates.ButtonTemplate:Clone()
+
+        Button.Parent = Tab.Tab
+
+        Button.Name = buttonTable.Name or "Button"
+        Button.Text = buttonTable.Text or "ButtonTemplate"
+        Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
+
+        Button.MouseButton1Click:Connect(table.Func)
+
+        return Button
+    end
+
+    Tab.Name = table.Name or "Tab"
+    Tab.Text = table.Text or "TabTemplate"
+
+    if table.Default == true then
+        DefaultTab = Tab
+    end
+
+    return TabFunctions
+end
