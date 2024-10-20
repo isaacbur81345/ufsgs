@@ -1140,7 +1140,7 @@ function Window.CreateTab(hm, TabTable)
         Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
 
         Button.MouseButton1Click:Connect(function()
-            buttonTable.Func()
+            buttonTable:Func()
         end)
 
         return Button
