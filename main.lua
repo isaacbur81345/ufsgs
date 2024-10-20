@@ -1109,10 +1109,10 @@ function Window.Run()
     end
 end
 
-function Window.CreateTab(table)
+function Window.CreateTab(TabTable)
     local Tab = Templates.TabTemplate:Clone()
     local TabFunctions = {UI = Tab}
-	for k, v in pairs(table) do
+	for k, v in pairs(TabTable) do
         print(k, v)
     end
     Tab.Parent = DescribeFrame
@@ -1145,8 +1145,8 @@ function Window.CreateTab(table)
         return Button
     end
 
-    Tab.Name = table.Name or "Tab"
-    Tab.BTTEXT.Text = table.Text or "TabTemplate"
+    Tab.Name = TabTable.Name or "Tab"
+    Tab.BTTEXT.Text = TabTable.Text or "TabTemplate"
     Tab.MouseButton1Click:Connect(function()
 		local Tabber = Tab.Tab:Clone()
 		Frame.Tab:Destroy()
@@ -1154,7 +1154,7 @@ function Window.CreateTab(table)
         Tabber.Parent = Frame
     end)
 
-    if table.Default == true then
+    if TabTable.Default == true then
         DefaultTab = Tab
     end
 
