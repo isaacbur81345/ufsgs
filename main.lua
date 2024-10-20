@@ -71,10 +71,12 @@ local Close = Instance.new("Frame")
 local UICorner_23 = Instance.new("UICorner")
 local Text = Instance.new("TextLabel")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local B = Instance.new("ImageButton")
 local Minimize = Instance.new("Frame")
 local UICorner_24 = Instance.new("UICorner")
 local Text_2 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local B_2 = Instance.new("ImageButton")
 local Templates = Instance.new("Frame")
 local TextTemplate = Instance.new("Frame")
 local Text_3 = Instance.new("TextLabel")
@@ -107,17 +109,20 @@ local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
 local Frame_9 = Instance.new("Frame")
 local UICorner_32 = Instance.new("UICorner")
 local Text_6 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
 local Minimized = Instance.new("Frame")
 local thingy_2 = Instance.new("Frame")
 local UICorner_33 = Instance.new("UICorner")
-local Minimize_2 = Instance.new("Frame")
+local Unminize = Instance.new("Frame")
 local UICorner_34 = Instance.new("UICorner")
 local Text_7 = Instance.new("TextLabel")
-local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+local B_3 = Instance.new("ImageButton")
 local ImageLabel_5 = Instance.new("ImageLabel")
 local UICorner_35 = Instance.new("UICorner")
-local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
 local ImageLabel_6 = Instance.new("ImageLabel")
+local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
@@ -132,7 +137,7 @@ Frame.BackgroundTransparency = 1.000
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.499889195, 0, 0.48568204, 0)
-Frame.Size = UDim2.new(0.518875122, 0, 0.639884353, 0)
+Frame.Size = UDim2.new(0.518999994, 0, 0.639999986, 0)
 Frame.ZIndex = 2
 
 Frame_2.Parent = Frame
@@ -639,6 +644,16 @@ Text.TextWrapped = true
 
 UIAspectRatioConstraint.Parent = Close
 
+B.Name = "B"
+B.Parent = Close
+B.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+B.BackgroundTransparency = 1.000
+B.BorderColor3 = Color3.fromRGB(0, 0, 0)
+B.BorderSizePixel = 0
+B.Size = UDim2.new(1, 0, 1, 0)
+B.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+B.ImageTransparency = 1.000
+
 Minimize.Name = "Minimize"
 Minimize.Parent = thingy
 Minimize.BackgroundColor3 = Color3.fromRGB(255, 157, 0)
@@ -667,6 +682,16 @@ Text_2.TextStrokeTransparency = 0.000
 Text_2.TextWrapped = true
 
 UIAspectRatioConstraint_2.Parent = Minimize
+
+B_2.Name = "B"
+B_2.Parent = Minimize
+B_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+B_2.BackgroundTransparency = 1.000
+B_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+B_2.BorderSizePixel = 0
+B_2.Size = UDim2.new(1, 0, 1, 0)
+B_2.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+B_2.ImageTransparency = 1.000
 
 Templates.Name = "Templates"
 Templates.Parent = Frame
@@ -920,6 +945,9 @@ Text_6.TextStrokeTransparency = 0.000
 Text_6.TextWrapped = true
 Text_6.TextXAlignment = Enum.TextXAlignment.Left
 
+UIAspectRatioConstraint_5.Parent = Frame
+UIAspectRatioConstraint_5.AspectRatio = 1.760
+
 Minimized.Name = "Minimized"
 Minimized.Parent = Dandysbin
 Minimized.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -928,7 +956,6 @@ Minimized.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Minimized.BorderSizePixel = 0
 Minimized.Position = UDim2.new(0.240244836, 0, 0.174129352, 0)
 Minimized.Size = UDim2.new(0.518999994, 0, 0.639999986, 0)
-Minimized.Visible = false
 
 thingy_2.Name = "thingy"
 thingy_2.Parent = Minimized
@@ -937,23 +964,23 @@ thingy_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 thingy_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 thingy_2.BorderSizePixel = 0
 thingy_2.Position = UDim2.new(0.500254333, 0, 1.17794359, 0)
-thingy_2.Size = UDim2.new(0.184822574, 0, 0.150538564, 0)
+thingy_2.Visible = false
 
 UICorner_33.Parent = thingy_2
 
-Minimize_2.Name = "Minimize"
-Minimize_2.Parent = thingy_2
-Minimize_2.BackgroundColor3 = Color3.fromRGB(13, 255, 0)
-Minimize_2.BackgroundTransparency = 0.750
-Minimize_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Minimize_2.BorderSizePixel = 0
-Minimize_2.Position = UDim2.new(0.5, 0, 0.150000006, 0)
-Minimize_2.Size = UDim2.new(0.771759272, 0, 0.740289927, 0)
+Unminize.Name = "Unminize"
+Unminize.Parent = thingy_2
+Unminize.BackgroundColor3 = Color3.fromRGB(13, 255, 0)
+Unminize.BackgroundTransparency = 0.750
+Unminize.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Unminize.BorderSizePixel = 0
+Unminize.Position = UDim2.new(0.5, 0, 0.150000006, 0)
+Unminize.Size = UDim2.new(0.771759272, 0, 0.740289927, 0)
 
-UICorner_34.Parent = Minimize_2
+UICorner_34.Parent = Unminize
 
 Text_7.Name = "Text"
-Text_7.Parent = Minimize_2
+Text_7.Parent = Unminize
 Text_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Text_7.BackgroundTransparency = 1.000
 Text_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -968,7 +995,17 @@ Text_7.TextSize = 14.000
 Text_7.TextStrokeTransparency = 0.000
 Text_7.TextWrapped = true
 
-UIAspectRatioConstraint_5.Parent = Minimize_2
+UIAspectRatioConstraint_6.Parent = Unminize
+
+B_3.Name = "B"
+B_3.Parent = Unminize
+B_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+B_3.BackgroundTransparency = 1.000
+B_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+B_3.BorderSizePixel = 0
+B_3.Size = UDim2.new(1, 0, 1, 0)
+B_3.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+B_3.ImageTransparency = 1.000
 
 ImageLabel_5.Parent = thingy_2
 ImageLabel_5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
@@ -981,7 +1018,7 @@ ImageLabel_5.Image = "rbxassetid://113953426721678"
 
 UICorner_35.Parent = ImageLabel_5
 
-UIAspectRatioConstraint_6.Parent = ImageLabel_5
+UIAspectRatioConstraint_7.Parent = ImageLabel_5
 
 ImageLabel_6.Parent = thingy_2
 ImageLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -993,3 +1030,73 @@ ImageLabel_6.Image = "rbxassetid://6794283750"
 ImageLabel_6.ImageTransparency = 0.980
 ImageLabel_6.ScaleType = Enum.ScaleType.Tile
 ImageLabel_6.TileSize = UDim2.new(0.25, 0, 1, 0)
+
+UIAspectRatioConstraint_8.Parent = thingy_2
+UIAspectRatioConstraint_8.AspectRatio = 2.180
+
+-- Scripts:
+
+local function VWKFHT_fake_script() -- B.LocalScript 
+	local script = Instance.new('LocalScript', B)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Parent.Parent:Destroy()
+	end)
+end
+coroutine.wrap(VWKFHT_fake_script)()
+local function YBLXC_fake_script() -- B_2.LocalScript 
+	local script = Instance.new('LocalScript', B_2)
+
+	local TS = game:GetService("TweenService")
+	local tif = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.In, 0)
+	local tifo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In, 0)
+	local orsizef = UDim2.new(0.185, 0,0.151, 0)
+	local frame = script.Parent.Parent.Parent.Parent.Parent.Frame
+	local min = script.Parent.Parent.Parent.Parent.Parent.Minimized.thingy
+	local o = true
+	
+	local close = TS:Create(frame, tif, {Size = UDim2.new(0,0,0,0)})
+	local open = TS:Create(min, tifo, {Size = orsizef})
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if o then
+			o = false
+			close:Play()
+			task.wait(0.45)
+			min.Visible = true
+			open:Play()
+			o = true
+			task.wait(0.55)
+			frame.Visible = false
+		end
+	end)
+end
+coroutine.wrap(YBLXC_fake_script)()
+local function NWETGK_fake_script() -- B_3.LocalScript 
+	local script = Instance.new('LocalScript', B_3)
+
+	local TS = game:GetService("TweenService")
+	local tif = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.In, 0)
+	local tifo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In, 0)
+	local orsizef = UDim2.new(0.519, 0,0.64, 0)
+	local frame = script.Parent.Parent.Parent.Parent.Parent.Frame
+	local min = script.Parent.Parent.Parent.Parent.Parent.Minimized.thingy
+	local o = true
+	
+	local close = TS:Create(min, tif, {Size = UDim2.new(0,0,0,0)})
+	local open = TS:Create(frame, tifo, {Size = orsizef})
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if o then
+			o = false
+			close:Play()
+			task.wait(0.45)
+			frame.Visible = true
+			open:Play()
+			o = true
+			task.wait(0.55)
+			min.Visible = false
+		end
+	end)
+end
+coroutine.wrap(NWETGK_fake_script)()
