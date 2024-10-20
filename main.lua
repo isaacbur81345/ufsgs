@@ -1142,7 +1142,7 @@ function Window.CreateTab(table)
 
         Button.MouseButton1Click:Connect(function()
             buttonTable:Func()
-        )
+        end)
 
         return Button
     end
