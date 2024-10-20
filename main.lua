@@ -1150,6 +1150,10 @@ function Window.CreateTab(table)
 
     Tab.Name = table.Name or "Tab"
     Tab.BTTEXT.Text = table.Text or "TabTemplate"
+    Tab.MouseButton1Click:Connect(function()
+        Tab.Tab.Visible = true
+        Tab.Tab.Parent = Frame
+    end)
 
     if table.Default == true then
         DefaultTab = Tab
