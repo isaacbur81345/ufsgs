@@ -1117,7 +1117,7 @@ end
 function Window.CreateTab(table)
     local Tab = Templates.TabTemplate:Clone()
     local TabFunctions = {UI = Tab}
-    print(table.Name.. table.Text)
+    print(table)
     Tab.Parent = DescribeFrame
 
 
