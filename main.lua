@@ -1109,7 +1109,7 @@ function Window.Run()
     end
 end
 
-function Window.CreateTab(TabTable)
+function Window.CreateTab(hm, TabTable)
     local Tab = Templates.TabTemplate:Clone()
     local TabFunctions = {UI = Tab}
 	for k, v in pairs(TabTable) do
