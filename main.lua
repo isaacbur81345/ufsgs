@@ -822,6 +822,7 @@ TabTemplate.TextSize = 14.000
 TabTemplateSF.Name = "Tab"
 TabTemplateSF.Parent = TabTemplate
 TabTemplateSF.Active = true
+TabTemplateSF.Visible = false
 TabTemplateSF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TabTemplateSF.BackgroundTransparency = 0.650
 TabTemplateSF.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1141,7 +1142,7 @@ function Window.CreateTab(table)
         Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
 
         Button.MouseButton1Click:Connect(function()
-            buttonTable:Func()
+            buttonTable.Func()
         end)
 
         return Button
