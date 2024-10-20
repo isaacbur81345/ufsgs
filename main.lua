@@ -805,7 +805,7 @@ UIGridLayout_2.CellPadding = UDim2.new(-0.00999999978, 0, 0.00999999978, 0)
 UIGridLayout_2.CellSize = UDim2.new(1, 0, 0.200000003, 0)
 UIGridLayout_2.FillDirectionMaxCells = 5
 
-TabTemplate.Name = "TabTemplate"
+TabTemplate.Name = "Tab"
 TabTemplate.Parent = Templates
 TabTemplate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TabTemplate.BackgroundTransparency = 1.000
