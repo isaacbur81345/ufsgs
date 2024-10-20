@@ -1104,7 +1104,7 @@ function Window.Run()
     Window.UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     if DefaultTab then
         Frame.Tab:Destroy()
-        DefaultTab.UI.Tab:Clone().Parent = Frame
+        DefaultTab.Tab:Clone().Parent = Frame
     else
     end
 end
