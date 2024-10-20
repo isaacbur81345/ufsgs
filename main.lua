@@ -123,6 +123,8 @@ local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
 
 Dandysbin.Name = "Dandysbin"
 Dandysbin.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Dandysbin.SafeAreaCompatibility = Enum.SafeAreaCompatibility.None
+Dandysbin.ScreenInsets = Enum.ScreenInsets.None
 
 Frame.Parent = Dandysbin
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
