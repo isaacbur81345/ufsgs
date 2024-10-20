@@ -1102,16 +1102,16 @@ coroutine.wrap(NWETGK_fake_script)()
 
 local DefaultTab = nil
 
-function Run()
-    Dandysbin.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local Window = {UI = Dandysbin}
+
+function Window.Run()
+    Window.UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     if DefaultTab then
         Frame.Tab:Destroy()
         DefaultTab.UI.Tab.Parent = Frame
     else
     end
 end
-
-local Window = {UI = Dandysbin}
 
 function Window.CreateTab(table)
     local Tab = Templates.TabTemplate:Clone()
@@ -1120,7 +1120,7 @@ function Window.CreateTab(table)
     Tab.Parent = DescribeFrame
 
 
-    function TabFunctions.CreateButton(textTable)
+    function TabFunctions.CreateText(textTable)
         local Text = Templates.TextTemplate:Clone()
 
         Text.Parent = Tab.Tab
@@ -1131,7 +1131,7 @@ function Window.CreateTab(table)
         return Text
     end
 
-    function TabFunctions.CreateText(buttonTable)
+    function TabFunctions.CreateButton(buttonTable)
         local Button = Templates.ButtonTemplate:Clone()
 
         Button.Parent = Tab.Tab
