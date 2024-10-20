@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local Dandysbin = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local Frame_2 = Instance.new("Frame")
@@ -1117,7 +1112,9 @@ end
 function Window.CreateTab(table)
     local Tab = Templates.TabTemplate:Clone()
     local TabFunctions = {UI = Tab}
-    print(table)
+	for k, v in pairs(table) do
+        print(k, v)
+    end
     Tab.Parent = DescribeFrame
 
 
