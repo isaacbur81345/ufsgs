@@ -1105,7 +1105,9 @@ function Window.Run()
     if DefaultTab then
         Frame.Tab:Destroy()
 		print(DefaultTab)
-        DefaultTab.Tab:Clone().Parent = Frame
+        local tabbertab = DefaultTab.Tab:Clone()
+		tabbertab.Parent = Frame
+		tabbertab.Visible = true
     else
     end
 end
