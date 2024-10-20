@@ -1104,10 +1104,10 @@ function Window.Run()
     Window.UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     if DefaultTab then
     	Frame.Tab:Destroy()
-	print(DefaultTab)
+		print(DefaultTab)
     	local tabbertab = DefaultTab.Tab:Clone()
-	tabbertab.Parent = Frame
-	tabbertab.Visible = true
+		tabbertab.Parent = Frame
+		tabbertab.Visible = true
     else
     end
 end
@@ -1141,7 +1141,10 @@ function Window.CreateTab(hm, TabTable)
         Button.BTTEXT.Text = buttonTable.Text or "ButtonTemplate"
         Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
 
-        Button.MouseButton1Click:Connect(buttonTable.Func)
+        Button.MouseButton1Click:Connect(function()
+			print("click!")
+			buttonTable.Func()
+		end)
 
         return Button
     end
