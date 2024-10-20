@@ -1118,7 +1118,7 @@ function Window.CreateTab(hm, TabTable)
     Tab.Parent = DescribeFrame
 
 
-    function TabFunctions.CreateText(textTable)
+    function TabFunctions.CreateText(a, textTable)
         local Text = Templates.TextTemplate:Clone()
 
         Text.Parent = Tab.Tab
@@ -1129,7 +1129,7 @@ function Window.CreateTab(hm, TabTable)
         return Text
     end
 
-    function TabFunctions.CreateButton(buttonTable)
+    function TabFunctions.CreateButton(d, buttonTable)
         local Button = Templates.ButtonTemplate:Clone()
 
         Button.Parent = Tab.Tab
