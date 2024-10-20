@@ -1109,7 +1109,7 @@ function Window.Run()
     Window.UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     if DefaultTab then
         Frame.Tab:Destroy()
-        DefaultTab.UI.Tab.Parent = Frame
+        DefaultTab.UI.Tab:Clone().Parent = Frame
     else
     end
 end
@@ -1117,7 +1117,7 @@ end
 function Window.CreateTab(table)
     local Tab = Templates.TabTemplate:Clone()
     local TabFunctions = {UI = Tab}
-
+    print(table.Name.. table.Text)
     Tab.Parent = DescribeFrame
 
 
