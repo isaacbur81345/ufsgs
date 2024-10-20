@@ -1150,9 +1150,11 @@ function Window.CreateTab(table)
 
     Tab.Name = table.Name or "Tab"
     Tab.BTTEXT.Text = table.Text or "TabTemplate"
-    Tab.MouseButton1Click:Connect(function()
-        Tab.Tab.Visible = true
-        Tab.Tab.Parent = Frame
+    Tab.MouseButton1Click:Connect(function()ç
+		local Tabber = Tab.Tab:Clone()
+		Frame.Tab:Destroy()
+        Tabber.Visible = true
+        Tabber.Parent = Frame
     end)
 
     if table.Default == true then
