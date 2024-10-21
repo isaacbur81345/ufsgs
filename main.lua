@@ -1103,75 +1103,86 @@ local DefaultTab = nil
 local Window = {UI = Dandysbin}
 
 function Window.Run()
-    Window.UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-    if DefaultTab then
-    	Frame.Tab:Destroy()
+	Window.UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	if DefaultTab then
+		Frame.Tab:Destroy()
 		print(DefaultTab)
-    	local tabbertab = DefaultTab.Tab:Clone()
+		local tabbertab = DefaultTab.UI.Tab:Clone()
 		tabbertab.Parent = Frame
 		tabbertab.Visible = true
-    else
-    end
+		for _, i in pairs(DefaultTab.Buttons) do
+			if tabbertab:FindFirstChild(i[1]) then
+				local buttoneror = tabbertab:FindFirstChild(i[1])
+				if buttoneror:IsA("TextButton") then
+					buttoneror.MouseButton1Click:Connect(i[2])
+				end
+			end
+		end
+	else
+	end
 end
 
 function Window.CreateTab(hm, TabTable)
-    local Tab = Templates.TabTemplate:Clone()
-    local TabFunctions = {UI = Tab}
+	local Tab = Templates.TabTemplate:Clone()
+	local TabFunctions = {UI = Tab, Buttons = {}}
 	for k, v in pairs(TabTable) do
-        print(k, v)
-    end
-    Tab.Parent = DescribeFrame
+		print(k, v)
+	end
+	Tab.Parent = DescribeFrame
 
 
-    function TabFunctions.CreateText(a, textTable)
-        local Text = Templates.TextTemplate:Clone()
+	function TabFunctions.CreateText(a, textTable)
+		local Texter = Templates.TextTemplate:Clone()
 
-        Text.Parent = Tab.Tab
+		Texter.Parent = Tab.Tab
 
-        Text.Name = textTable.Name or "Button"
-        Text.BTTEXT.Text = textTable.Text or "ButtonTemplate"
+		Texter.Name = textTable.Name or "Button"
+		Texter.BTTEXT.Text = textTable.Text or "ButtonTemplate"
 
-        return Text
-    end
+		return Texter
+	end
 
-    function TabFunctions.CreateButton(d, buttonTable)
-        local Button = Templates.ButtonTemplate:Clone()
+	function TabFunctions.CreateButton(d, buttonTable)
+		local Button = ButtonTemplate:Clone()
 
-        Button.Parent = Tab.Tab
+		Button.Parent = Tab.Tab
 
-        Button.Name = buttonTable.Name or "Button"
-        Button.BTTEXT.Text = buttonTable.Text or "ButtonTemplate"
-        Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
+		Button.Name = buttonTable.Name or "Button".. #TabFunctions.Buttons
+		Button.BTTEXT.Text = buttonTable.Text or "ButtonTemplate"
+		Button.Image.Image = buttonTable.Image or "rbxassetid://14513373268"
 		Button.Active = true
+		Button.Selectable = true
 
-        Button.MouseButton1Click:Connect(function()
-			print("click!")
-			buttonTable.Func()
-			if buttonTable.Func then
-				buttonTable.Func()
-				print("Function executed!")
-			else
-				print("No function defined")
-			end
-		end)
+		table.insert(TabFunctions.Buttons, {Button.Name, buttonTable.Func})
+		if TabTable.Default == true then
+			DefaultTab = TabFunctions
+		end
 
-        return Button
-    end
+		return Button
+	end
 
-    Tab.Name = TabTable.Name or "Tab"
-    Tab.BTTEXT.Text = TabTable.Text or "TabTemplate"
-    Tab.MouseButton1Click:Connect(function()
+	Tab.Name = TabTable.Name or "Tab"
+	Tab.BTTEXT.Text = TabTable.Text or "TabTemplate"
+	Tab.MouseButton1Click:Connect(function()
 		local Tabber = Tab.Tab:Clone()
 		Frame.Tab:Destroy()
-        Tabber.Visible = true
-        Tabber.Parent = Frame
-    end)
+		Tabber.Visible = true
+		Tabber.Parent = Frame
+		for _, i in pairs(TabFunctions.Buttons) do
+			if Tabber:FindFirstChild(i[1]) then
+				local buttoneror = Tabber:FindFirstChild(i[1])
+				if buttoneror:IsA("TextButton") then
+					buttoneror.MouseButton1Click:Connect(i[2])
+				end
+			end
+		end
+	end)
 
-    if TabTable.Default == true then
-        DefaultTab = Tab
-    end
+	if TabTable.Default == true then
+		DefaultTab = TabFunctions
+	end
 
-    return TabFunctions
+	return TabFunctions
 end
 
 return Window
